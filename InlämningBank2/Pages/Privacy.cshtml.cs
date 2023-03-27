@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Data;
 
 namespace InlämningBank2.Pages
 {
-	public class PrivacyModel : PageModel
+    [Authorize(Roles = "Admin")]
+    public class PrivacyModel : PageModel
 	{
 		private readonly ILogger<PrivacyModel> _logger;
 
