@@ -1,5 +1,6 @@
 using InlämningBank2.BankAppData;
 using InlämningBank2.Data;
+using InlämningBank2.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,6 +22,9 @@ builder.Services.AddTransient<DataInitializer>();
 // Lägg till min DbContext
 builder.Services.AddDbContext<BankAppDataContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Lägg till min CustomerService
+builder.Services.AddTransient<ICustomersService, CustomersService>();
 
 var app = builder.Build();
 
