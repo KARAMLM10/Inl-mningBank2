@@ -1,0 +1,190 @@
+﻿@page
+@model InlämningBank2.Pages.AccountsModel
+@{
+    var pagenumber = 0;
+}
+
+
+<div class="card card-bg">
+    <div class="card-body">
+        <h5 class="card-title">Min Tabell</h5>
+        <div class="table-responsive">
+            <table class="table">
+                <h1>Alla Accounts</h1>
+
+                @*Search*@
+                <form method="get">
+                    <input asp-for="@Model.Q" />
+                    <input type="hidden" asp-for="@Model.Accounts" />
+                    <input type="submit" value="Search" />
+                </form>
+
+                <table class="table table-hover table-striped">
+                    <thead>
+
+                        <tr>
+                            <th scope="col">
+                                AccountID
+                                <a asp-page="/Accounts"
+                                   asp-route-q="@Model.Q"
+                                   asp-route-sortColumn="AccountId"
+                                   asp-route-sortOrder="asc"
+                                   style="text-decoration:none">
+                                    <i class="fa-solid fa-angle-up"></i>
+                                </a>
+                                <a asp-page="/Accounts"
+                                   asp-route-q="@Model.Q"
+                                   asp-route-sortColumn="AccountId"
+                                   asp-route-sortOrder="desc"
+                                   style="text-decoration:none">
+                                    <i class="fa-solid fa-angle-down"></i>
+                                </a>
+                            </th>
+                            <th scope="col">
+                                Frequency
+                                <a asp-page="/Accounts"
+                                   asp-route-q="@Model.Q"
+                                   asp-route-sortColumn="Frequency"
+                                   asp-route-sortOrder="asc"
+                                   style="text-decoration:none">
+                                    <i class="fa-solid fa-angle-up"></i>
+                                </a>
+                                <a asp-page="/Accounts"
+                                   asp-route-q="@Model.Q"
+                                   asp-route-sortColumn="Frequency"
+                                   asp-route-sortOrder="desc"
+                                   style="text-decoration:none">
+                                    <i class="fa-solid fa-angle-down"></i>
+                                </a>
+                            </th>
+                            <th scope="col">
+                                Created
+                                <a asp-page="/Accounts"
+                                   asp-route-q="@Model.Q"
+                                   asp-route-sortColumn="Created"
+                                   asp-route-sortOrder="asc"
+                                   style="text-decoration:none">
+                                    <i class="fa-solid fa-angle-up"></i>
+                                </a>
+                                <a asp-page="/Accounts"
+                                   asp-route-sortColumn="Created"
+                                   asp-route-sortOrder="desc"
+                                   style="text-decoration:none">
+                                    <i class="fa-solid fa-angle-down"></i>
+                                </a>
+                            </th>
+                            <th scope="col">
+                                Balance
+                                <a asp-page="/Accounts"
+                                   asp-route-q="@Model.Q"
+                                   asp-route-sortColumn="Balance"
+                                   asp-route-sortOrder="asc"
+                                   style="text-decoration:none">
+                                    <i class="fa-solid fa-angle-up"></i>
+                                </a>
+                                <a asp-page="/Accounts"
+                                   asp-route-sortColumn="Balance"
+                                   asp-route-sortOrder="desc"
+                                   style="text-decoration:none">
+                                    <i class="fa-solid fa-angle-down"></i>
+                                </a>
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var supp in @Model.Accounts)
+                        {
+                            <tr>
+                                <td>@supp.AccountId</td>
+                                <td>@supp.Frequency</td>
+                                <td>@supp.Created</td>
+                                <td>@supp.Balans</td>
+                                @*
+                            <td><a asp-page="/Account" asp-route-id="@supp.AccountId" class="btn btn-primary">View</a></td>*@
+                                <td>
+                                    <a asp-page="/Account/Withdraw" asp-route-accountId="@supp.AccountId" class="btn btn-danger"><i class="fa-solid fa-square-plus fa-rotate-180"></i></a>
+                                </td>
+                                <td>
+                                    @* <a asp-page="/Account/Deposit" asp-route-accountId="@supp.AccountId" class="btn btn-success"><i class="fa-solid fa-square-plus fa-rotate-180"></i></a>*@
+                                    <a asp-page="Deposit2" asp-route-accountId="@supp.AccountId" class="btn btn-success"><i class="fa-solid fa-square-plus fa-rotate-180"></i></a>
+
+                                </td>
+                            </tr>
+
+                        }
+                        <tr>
+                            <td>
+                                @if (Model.CurrentPage != 1)
+                                {
+                                    <a class="btn btn-secondary"
+                                   asp-page="/Accounts"
+                                   asp-route-q="@Model.Q"
+                                   asp-route-sortColumn="@Model.SortColumn"
+                                   asp-route-sortOrder="@Model.SortOrder"
+                                   asp-route-pageNo="@(Model.CurrentPage - 1)">
+                                        Prev
+                                    </a>
+                                }
+                            </td>
+                            <td colspan="2">
+                                @if (Model.CurrentPage > 3)
+                                {
+                                    pagenumber = 3;
+                                }
+                                @if (Model.CurrentPage == 3)
+                                {
+                                    pagenumber = 2;
+                                }
+                                @if (Model.CurrentPage == 2)
+                                {
+                                    pagenumber = 1;
+                                }
+                                @if (Model.CurrentPage == 1)
+                                {
+                                    pagenumber = 0;
+                                }
+                                @for (int i = Model.CurrentPage - pagenumber; i <= Model.CurrentPage + 3; i++)
+                                {
+
+                                    string activeLink = "btn-secondary";
+                                    if (i == Model.CurrentPage)
+                                    {
+                                        activeLink = "btn-primary";
+                                    }
+
+                                    <a class="btn @(Model.CurrentPage == i ? "btn-primary" : "btn-secondary")"
+                                   asp-page="/Accounts"
+                                   asp-route-q="@Model.Q"
+                                   asp-route-sortColumn="@Model.SortColumn"
+                                   asp-route-sortOrder="@Model.SortOrder"
+                                   asp-route-pageNo="@i">
+                                        @i
+                                    </a>
+                                }
+                            </td>
+                            <td>
+                                @if (Model.CurrentPage != Model.PageCount)
+                                {
+                                    <a class="btn btn-secondary"
+                                   asp-page="/Accounts"
+                                   asp-route-q="@Model.Q"
+                                   asp-route-sortColumn="@Model.SortColumn"
+                                   asp-route-sortOrder="@Model.SortOrder"
+                                   asp-route-pageNo="@(Model.CurrentPage + 1)">
+                                        Next
+                                    </a>
+                                }
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+
+            </table>
+        </div>
+
+    </div>
+</div>

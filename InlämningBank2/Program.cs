@@ -25,6 +25,8 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectio
 
 // Lägg till min CustomerService
 builder.Services.AddTransient<ICustomersService, CustomersService>();
+// Lägg till min ProductService
+builder.Services.AddTransient<IAccountsService, AccountsService>();
 
 var app = builder.Build();
 
