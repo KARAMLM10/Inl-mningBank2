@@ -1,9 +1,12 @@
 using InlämningBank2.BankAppData;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Data;
 
 namespace InlämningBank2.Pages
 {
+    [Authorize(Roles = "Admin")]
     public class BankAppDataModel : PageModel
     {
         private readonly BankAppDataContext _dbContext;
