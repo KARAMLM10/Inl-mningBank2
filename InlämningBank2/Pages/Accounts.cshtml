@@ -7,16 +7,27 @@
 
 <div class="card card-bg">
     <div class="card-body">
-        <h5 class="card-title">Min Tabell</h5>
+        
         <div class="table-responsive">
             <table class="table">
-                <h1>Alla Accounts</h1>
+                <h1>All Accounts</h1>
 
                 @*Search*@
-                <form method="get">
+                @*<form method="get">
                     <input asp-for="@Model.Q" />
                     <input type="hidden" asp-for="@Model.Accounts" />
                     <input type="submit" value="Search" />
+                </form>*@
+
+                <form method="get" class="my-form">
+                    <div class="form-group">
+                        <input asp-for="@Model.Q" class="form-control" />
+                    </div>
+                    <input type="hidden" asp-for="@Model.Accounts" />
+                    @*<input type="submit" value="Search" class="btn btn-primary" />*@
+                    <div class="col-md-3">
+                        <button type="submit" class="btn btn-primary btn-block">Search</button>
+                    </div>
                 </form>
 
                 <table class="table table-hover table-striped">
@@ -127,6 +138,7 @@
                                     </a>
                                 }
                             </td>
+                            <td></td>
                             <td colspan="2">
                                 @if (Model.CurrentPage > 3)
                                 {

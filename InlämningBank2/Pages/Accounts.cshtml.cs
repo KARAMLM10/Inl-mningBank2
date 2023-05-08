@@ -32,11 +32,11 @@ namespace InlämningBank2.Pages
                 pageNo = 1;
             }
             Q = q;
-            SortOrder = sortOrder;
             SortColumn = sortColumn;
+            SortOrder = sortOrder;            
             PageCount = pageNo;
             CurrentPage = pageNo;
-            var result = _accountsService.GetAccounts(sortOrder, sortColumn, q, pageNo);
+            var result = _accountsService.GetAccounts(sortColumn, sortOrder, q, pageNo);
             PageCount = result.PageCount;
 
             Accounts = result.Results.Select(c => new AccountsViewModel
