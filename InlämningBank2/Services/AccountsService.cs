@@ -24,6 +24,7 @@ namespace InlämningBank2.Services
             {
                 // Handle the case when the customer is not found
                 return null; // or throw an exception, return a default value, etc.
+                //github fel
             }
             var accountsViewModel = new List<AccountViewModel>();
             foreach (var accouunt in accounts)
