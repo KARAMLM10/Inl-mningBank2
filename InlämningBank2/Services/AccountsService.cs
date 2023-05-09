@@ -1,6 +1,7 @@
 ﻿using InlämningBank2.BankAppData;
 using InlämningBank2.Infrastructure.Paging;
 using InlämningBank2.ViewModel;
+using Microsoft.EntityFrameworkCore;
 
 namespace InlämningBank2.Services
 {
@@ -10,6 +11,34 @@ namespace InlämningBank2.Services
         public AccountsService(BankAppDataContext dbContext)
         {
             _dbContext = dbContext;
+        }
+
+        public List<AccountViewModel> GetAccounts(int customerId)
+        {
+            //throw new NotImplementedException();
+            var accounts = _dbContext.Dispositions
+                .Include(x => x.Customer)
+                .Include(a => a.Account)
+                .Where(c => c.CustomerId == customerId).Select(a => a.Account).AsQueryable();
+            if (accounts == null)
+            {
+                // Handle the case when the customer is not found
+                return null; // or throw an exception, return a default value, etc.
+            }
+            var accountsViewModel = new List<AccountViewModel>();
+            foreach (var accouunt in accounts)
+            {
+                var accountViewModel = new AccountViewModel
+                {
+                    AccountId = accouunt.AccountId,
+                    Frequency = accouunt.Frequency,
+                    Created = accouunt.Created,
+                    Balans = accouunt.Balance,
+                };
+                accountsViewModel.Add(accountViewModel);
+            }
+
+            return accountsViewModel;
         }
 
         public PagedResult<Account> GetAccounts(string sortColumn, string sortOrder, string q, int pageNo)
@@ -36,7 +65,7 @@ namespace InlämningBank2.Services
                 else if (sortOrder == "desc")
                     query = query.OrderByDescending(c => c.Frequency);
 
-            var Accounts = query.Select(c => new AccountsViewModel
+            var Accounts = query.Select(c => new AccountViewModel
             {
                 AccountId = c.AccountId,
                 Frequency = c.Frequency,

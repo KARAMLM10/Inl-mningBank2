@@ -14,8 +14,18 @@
 <p>Customer ID: @Model.Customer.CustomerId</p>
 <p>Gender: @Model.Customer.Gender</p>
 <p>Given Name: @Model.Customer.Givenname</p>
+@*<p>AccountId: @Model.Account.AccountId</p>
+<p>Frequency: @Model.Account.Frequency</p>
+<p>Created: @Model.Account.Created</p>
+<p>Balance: @Model.Account.Balans</p>*@
 
-
+@foreach(var account in Model.Account)
+{
+    @account.AccountId
+    @account.Frequency
+    @account.Balans
+    @account.Created
+}
 
 @*@model CustomerViewModel
 

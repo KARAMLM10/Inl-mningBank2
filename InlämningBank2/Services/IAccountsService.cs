@@ -1,10 +1,12 @@
 ﻿using InlämningBank2.BankAppData;
 using InlämningBank2.Infrastructure.Paging;
+using InlämningBank2.ViewModel;
 
 namespace InlämningBank2.Services
 {
     public interface IAccountsService
     {
         PagedResult<Account> GetAccounts(string sortColumn, string sortOrder, string q, int pageNo);
+        List<AccountViewModel> GetAccounts(int AccountId);
     }
 }

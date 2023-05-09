@@ -17,7 +17,7 @@ namespace InlämningBank2.Pages
         //private readonly IAccountsService accountsService;
         private readonly IAccountsService _accountsService;
 
-        public List<AccountsViewModel> Accounts { get; set; }
+        public List<AccountViewModel> Accounts { get; set; }
         public string Q { get; set; }
         public int PageCount { get; set; }
         public int AccountId { get; set; }
@@ -39,7 +39,7 @@ namespace InlämningBank2.Pages
             var result = _accountsService.GetAccounts(sortColumn, sortOrder, q, pageNo);
             PageCount = result.PageCount;
 
-            Accounts = result.Results.Select(c => new AccountsViewModel
+            Accounts = result.Results.Select(c => new AccountViewModel
             {
                 AccountId = c.AccountId,
                 Frequency = c.Frequency,

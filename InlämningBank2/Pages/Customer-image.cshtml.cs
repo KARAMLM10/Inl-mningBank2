@@ -11,40 +11,22 @@ namespace InlämningBank2.Pages
     public class Customer_imageModel : PageModel
     {
         private readonly ICustomersService _customersService;
-
-        public Customer_imageModel(ICustomersService customersService)
+        private readonly IAccountsService _accountsService;
+        public Customer_imageModel(ICustomersService customersService, IAccountsService accountsService)
         {
             //_dbContext = dbContext;
             _customersService = customersService;
-
+            _accountsService = accountsService;
+           
         }
         public CustomerViewModel Customer { get; set; }
-        //private readonly BankAppDataContext _dbContext;
-        //private ICustomerService _customerService;
-        //private IAccountsService _accountsService;
-        //public Customer_imageModel(ICustomerService customerService, IAccountsService accountsService)
-        //{
-        //    _customerService = customerService;
-        //    _accountsService = accountsService;
-        //}
-
-        //public List<CustomerViewModel> Customer { get; set; }
-        //public List<CustomerViewModel> Account { get; set; }
-
-        //public string Gender { get; set; }
-        //public string Givenname { get; set; }
-        //public string Surname { get; set; }
-        //public string City { get; set; }
-        //public string Zipcode { get; set; }
-        //public int AccountId { get; set; }
-        //public string Frequency { get; set; } = null!;
-        //public DateTime Created { get; set; }
-        //public decimal Balance { get; set; }
+        public List<AccountViewModel> Account { get; set; }   
+      
         public void OnGet(int customerId)
         {
             
                 Customer = _customersService.GetCustomer(customerId);
-
+                Account = _accountsService.GetAccounts(customerId);
                 if (Customer == null)
                 {
                     // Handle the case when the customer is not found
@@ -54,16 +36,6 @@ namespace InlämningBank2.Pages
                     // RedirectToPage("/Error");
                 }
             
-
-            //Givenname = _dbContext.Customers.First(c => c.CustomerId == id).Givenname;
-            //Gender = _dbContext.Customers.First(c => c.CustomerId == id).Gender;
-            //Surname = _dbContext.Customers.First(c => c.CustomerId == id).Surname;
-            //City = _dbContext.Customers.First(c => c.CustomerId == id).City;
-            //Zipcode = _dbContext.Customers.First(c => c.CustomerId == id).Zipcode;
-            //AccountId = _dbContext.Accounts.First(c => c.AccountId == id).AccountId;
-            //Frequency = _dbContext.Accounts.First(c => c.AccountId == id).Frequency;
-            //Created = _dbContext.Accounts.First(c => c.AccountId == id).Created;
-            //Balance = _dbContext.Accounts.First(c => c.AccountId == id).Balance;
 
         }
     }
