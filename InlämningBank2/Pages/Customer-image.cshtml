@@ -5,70 +5,9 @@
 }
 
 
-@*<div class="card">
-    <div class="card-header">
-        <h5 class="card-title">Customer Profile</h5>
-    </div>
-    <div class="card-body">
-        <h6 class="card-subtitle mb-2 text-muted">Customer Information</h6>
-        <div class="table-responsive">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Customer ID</th>
-                        <th>Gender</th>
-                        <th>Given Name</th>
-                        <th>Country</th>
-                        <th>Birthday</th>
-                        <th>National ID</th>
-                        <th>Telephone Number</th>
-                        <th>Email</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>@Model.Customer.CustomerId</td>
-                        <td>@Model.Customer.Gender</td>
-                        <td>@Model.Customer.Givenname</td>
-                        <td>@Model.Customer.Country</td>
-                        <td>@Model.Customer.Birthday</td>
-                        <td>@Model.Customer.NationalId</td>
-                        <td>@Model.Customer.Telephonenumber</td>
-                        <td>@Model.Customer.Emailaddress</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <h6 class="card-subtitle mt-4 mb-2 text-muted">Account Information</h6>
-        <div class="table-responsive">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Account ID</th>
-                        <th>Frequency</th>
-                        <th>Balance</th>
-                        <th>Created</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var account in Model.Account)
-                    {
-                        <tr>
-                            <td>@account.AccountId</td>
-                            <td>@account.Frequency</td>
-                            <td>@account.Balans</td>
-                            <td>@account.Created</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-*@
 <style>
     .bank-profile {
-        background-image: url('/wwwroot/assets/img/BWBG.jpg');
+        background-image: url('/assets/img/BWBG.jpg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
