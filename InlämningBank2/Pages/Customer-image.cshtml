@@ -5,143 +5,147 @@
 }
 
 
-<h1>Customer image</h1>
-
-@*@model CustomerViewModel
+@*<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Customer Profile</h5>
+    </div>
+    <div class="card-body">
+        <h6 class="card-subtitle mb-2 text-muted">Customer Information</h6>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Customer ID</th>
+                        <th>Gender</th>
+                        <th>Given Name</th>
+                        <th>Country</th>
+                        <th>Birthday</th>
+                        <th>National ID</th>
+                        <th>Telephone Number</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Model.Customer.CustomerId</td>
+                        <td>@Model.Customer.Gender</td>
+                        <td>@Model.Customer.Givenname</td>
+                        <td>@Model.Customer.Country</td>
+                        <td>@Model.Customer.Birthday</td>
+                        <td>@Model.Customer.NationalId</td>
+                        <td>@Model.Customer.Telephonenumber</td>
+                        <td>@Model.Customer.Emailaddress</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <h6 class="card-subtitle mt-4 mb-2 text-muted">Account Information</h6>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Account ID</th>
+                        <th>Frequency</th>
+                        <th>Balance</th>
+                        <th>Created</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var account in Model.Account)
+                    {
+                        <tr>
+                            <td>@account.AccountId</td>
+                            <td>@account.Frequency</td>
+                            <td>@account.Balans</td>
+                            <td>@account.Created</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 *@
-
-
-<h1>Customer Information</h1>
-
-<div class="table-responsive">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Customer ID</th>
-                <th>Gender</th>
-                <th>GivenName</th>
-                <th>Country</th>
-                <th>Birthday</th>
-                <th>NationalID</th>
-                <th>Telefonnumber</th>
-                <th>Email</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>@Model.Customer.CustomerId</td>
-                <td>@Model.Customer.Gender</td>
-                <td>@Model.Customer.Givenname</td>
-                <td>@Model.Customer.Country</td>
-                <td>@Model.Customer.Birthday</td>
-                <td>@Model.Customer.NationalId</td>
-                <td>@Model.Customer.Telephonenumber</td>
-                <td>@Model.Customer.Emailaddress</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-
-<div class="table-responsive">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Account ID</th>
-                <th>Frequency</th>
-                <th>Balance</th>
-                <th>Created</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var account in Model.Account)
-            {
-                <tr>
-                    <td>@account.AccountId</td>
-                    <td>@account.Frequency</td>
-                    <td>@account.Balans</td>
-                    <td>@account.Created</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
-
-
-@*<h1>Customer Information</h1>
-
-<p>Customer ID: @Model.Customer.CustomerId</p>
-<p>Gender: @Model.Customer.Gender</p>
-<p>Given Name: @Model.Customer.Givenname</p>
-<th>AccountID</th>
-<th>Frequency</th>
-<th>Balance</th>
-<th>Created</th>
-@foreach(var account in Model.Account)
-{
-    <td>@account.AccountId</td>
-    <td>@account.Frequency</td>
-    <td>@account.Balans</td>
-    <td>@account.Created</td>
-}*@
-
-@*@model CustomerViewModel
-
-<h1>Customer Information</h1>
-
-<p>Customer ID: @Model.CustomerId</p>
-<p>Given Name: @Model.Givenname</p>
-<p>Gender: @Model.Gender</p>*@
-<!-- Add more properties as needed -->
-
-@*<table class="table table-hover table-striped">
-<thead>
-    <tr>
-            <th scope="col">CustomerID</th>
-            <th scope="col">Gender</th>
-            <th scope="col">Surname</th>
-            <th scope="col">Givenname</th>
-            <th scope="col">City</th>
-            <th scope="col">Zipcode</th>
-            <th scope="col">Accountid</th>
-            <th scope="col">Frequency</th>
-            <th scope="col">Created</th>
-            <th scope="col">Balance</th>
-
-    </tr>
-
-</thead>
-    @foreach (var supp in @Model.Customer)
-    {
-        <tr>
-            <td>@supp.CustomerId</td>
-            <td>@supp.Gender</td>
-            <td>@supp.Surname</td>
-            <td>@supp.Givenname</td>
-            <td>@supp.City</td>
-            <td>@supp.Zipcode</td>
-            <td>@supp.AccountId</td>
-            <td>@supp.Frequency</td>
-            <td>@supp.Created</td>
-            <td>@supp.Balance</td>
-        </tr>
-
+<style>
+    .bank-profile {
+        background-image: url('/wwwroot/assets/img/BWBG.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-</table>
-*@
+    .transparent-card {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+    }
+</style>
 
-@*<div class="card">
-    <div class="card-body">
-        <h5 class="card-title">@Model.Givenname</h5>
-        <h6 class="card-subtitle mb-2 text-muted">@Model.Gender</h6>
-        <p class="card-text">
-            <strong>Efternamn:</strong> @Model.Surname <br>
-            <strong>Stad:</strong> @Model.City <br>
-            <strong>Postnummer:</strong> @Model.Zipcode <br>
-            <strong>Kontonummer:</strong> @Model.AccountId <br>
-            <strong>Frekvens:</strong> @Model.Frequency <br>
-            <strong>Skapad:</strong> @Model.Created <br>
-            <strong>Saldo:</strong> @Model.Balance <br>
-        </p>
+<div class="bank-profile">
+    <div class="card transparent-card">
+        <div class="card-header">
+            <h5 class="card-title">Customer Profile</h5>
+        </div>
+        <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted">Customer Information</h6>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <!-- Customer Information Table -->
+                    <thead>
+                        <tr>
+                            <th>Customer ID</th>
+                            <th>Gender</th>
+                            <th>Given Name</th>
+                            <th>Country</th>
+                            <th>Birthday</th>
+                            <th>National ID</th>
+                            <th>Telephone Number</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@Model.Customer.CustomerId</td>
+                            <td>@Model.Customer.Gender</td>
+                            <td>@Model.Customer.Givenname</td>
+                            <td>@Model.Customer.Country</td>
+                            <td>@Model.Customer.Birthday</td>
+                            <td>@Model.Customer.NationalId</td>
+                            <td>@Model.Customer.Telephonenumber</td>
+                            <td>@Model.Customer.Emailaddress</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <h6 class="card-subtitle mt-4 mb-2 text-muted">Account Information</h6>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <!-- Account Information Table -->
+                    <thead>
+                        <tr>
+                            <th>Account ID</th>
+                            <th>Frequency</th>
+                            <th>Balance</th>
+                            <th>Created</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var account in Model.Account)
+                        {
+                            <tr>
+                                <td>@account.AccountId</td>
+                                <td>@account.Frequency</td>
+                                <td>@account.Balans</td>
+                                <td>@account.Created</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-</div>*@
+</div>
+
