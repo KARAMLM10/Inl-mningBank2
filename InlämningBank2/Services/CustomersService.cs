@@ -28,6 +28,11 @@ namespace InlämningBank2.Services
                 CustomerId = customer.CustomerId,                
                 Givenname = customer.Givenname,
                 Gender = customer.Gender,
+                Country = customer.Country,
+                Birthday = customer.Birthday,
+                NationalId = customer.NationalId,
+                Telephonenumber = customer.Telephonenumber,
+                Emailaddress = customer.Emailaddress,
                
             };
 

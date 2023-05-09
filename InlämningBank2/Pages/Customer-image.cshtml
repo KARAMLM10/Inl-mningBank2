@@ -9,23 +9,80 @@
 
 @*@model CustomerViewModel
 *@
+
+
 <h1>Customer Information</h1>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Customer ID</th>
+                <th>Gender</th>
+                <th>GivenName</th>
+                <th>Country</th>
+                <th>Birthday</th>
+                <th>NationalID</th>
+                <th>Telefonnumber</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.Customer.CustomerId</td>
+                <td>@Model.Customer.Gender</td>
+                <td>@Model.Customer.Givenname</td>
+                <td>@Model.Customer.Country</td>
+                <td>@Model.Customer.Birthday</td>
+                <td>@Model.Customer.NationalId</td>
+                <td>@Model.Customer.Telephonenumber</td>
+                <td>@Model.Customer.Emailaddress</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Account ID</th>
+                <th>Frequency</th>
+                <th>Balance</th>
+                <th>Created</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var account in Model.Account)
+            {
+                <tr>
+                    <td>@account.AccountId</td>
+                    <td>@account.Frequency</td>
+                    <td>@account.Balans</td>
+                    <td>@account.Created</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+@*<h1>Customer Information</h1>
 
 <p>Customer ID: @Model.Customer.CustomerId</p>
 <p>Gender: @Model.Customer.Gender</p>
 <p>Given Name: @Model.Customer.Givenname</p>
-@*<p>AccountId: @Model.Account.AccountId</p>
-<p>Frequency: @Model.Account.Frequency</p>
-<p>Created: @Model.Account.Created</p>
-<p>Balance: @Model.Account.Balans</p>*@
-
+<th>AccountID</th>
+<th>Frequency</th>
+<th>Balance</th>
+<th>Created</th>
 @foreach(var account in Model.Account)
 {
-    @account.AccountId
-    @account.Frequency
-    @account.Balans
-    @account.Created
-}
+    <td>@account.AccountId</td>
+    <td>@account.Frequency</td>
+    <td>@account.Balans</td>
+    <td>@account.Created</td>
+}*@
 
 @*@model CustomerViewModel
 
