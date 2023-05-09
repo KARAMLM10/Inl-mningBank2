@@ -1,0 +1,80 @@
+﻿@page
+@using InlämningBank2.ViewModel;
+@model InlämningBank2.Pages.Customer_imageModel
+@{
+}
+
+
+<h1>Customer image</h1>
+
+@*@model CustomerViewModel
+*@
+<h1>Customer Information</h1>
+
+<p>Customer ID: @Model.Customer.CustomerId</p>
+<p>Gender: @Model.Customer.Gender</p>
+<p>Given Name: @Model.Customer.Givenname</p>
+
+
+
+@*@model CustomerViewModel
+
+<h1>Customer Information</h1>
+
+<p>Customer ID: @Model.CustomerId</p>
+<p>Given Name: @Model.Givenname</p>
+<p>Gender: @Model.Gender</p>*@
+<!-- Add more properties as needed -->
+
+@*<table class="table table-hover table-striped">
+<thead>
+    <tr>
+            <th scope="col">CustomerID</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Surname</th>
+            <th scope="col">Givenname</th>
+            <th scope="col">City</th>
+            <th scope="col">Zipcode</th>
+            <th scope="col">Accountid</th>
+            <th scope="col">Frequency</th>
+            <th scope="col">Created</th>
+            <th scope="col">Balance</th>
+
+    </tr>
+
+</thead>
+    @foreach (var supp in @Model.Customer)
+    {
+        <tr>
+            <td>@supp.CustomerId</td>
+            <td>@supp.Gender</td>
+            <td>@supp.Surname</td>
+            <td>@supp.Givenname</td>
+            <td>@supp.City</td>
+            <td>@supp.Zipcode</td>
+            <td>@supp.AccountId</td>
+            <td>@supp.Frequency</td>
+            <td>@supp.Created</td>
+            <td>@supp.Balance</td>
+        </tr>
+
+    }
+
+</table>
+*@
+
+@*<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Givenname</h5>
+        <h6 class="card-subtitle mb-2 text-muted">@Model.Gender</h6>
+        <p class="card-text">
+            <strong>Efternamn:</strong> @Model.Surname <br>
+            <strong>Stad:</strong> @Model.City <br>
+            <strong>Postnummer:</strong> @Model.Zipcode <br>
+            <strong>Kontonummer:</strong> @Model.AccountId <br>
+            <strong>Frekvens:</strong> @Model.Frequency <br>
+            <strong>Skapad:</strong> @Model.Created <br>
+            <strong>Saldo:</strong> @Model.Balance <br>
+        </p>
+    </div>
+</div>*@

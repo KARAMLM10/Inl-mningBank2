@@ -145,10 +145,9 @@
                                 <td>@supp.Gender</td>
                                 <td>@supp.Givenname</td>
                                 <td>@supp.Surname</td>
-                                @*<td>@supp.Streetaddress</td>*@
                                 <td>@supp.City</td>
                                 <td>@supp.Zipcode</td>
-                                <td><a asp-page="/Customer" asp-route-id="@supp.CustomerId" class="btn btn-primary">View</a></td>
+                                <td><a asp-page="/Customer-image" asp-route-customerId="@supp.CustomerId" class="btn btn-primary">View</a></td>
                             </tr>
 
                         }

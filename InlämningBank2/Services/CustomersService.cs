@@ -12,6 +12,29 @@ namespace InlämningBank2.Services
             _dbContext = dbContext;
         }
 
+        public CustomerViewModel GetCustomer(int customerId)
+        {
+            //throw new NotImplementedException();
+            //return _dbContext.Customers.First(a => a.CustomerId == customerId);
+            var customer = _dbContext.Customers.FirstOrDefault(a => a.CustomerId == customerId);
+            if (customer == null)
+            {
+                // Handle the case when the customer is not found
+                return null; // or throw an exception, return a default value, etc.
+            }
+
+            var customerViewModel = new CustomerViewModel
+            {
+                CustomerId = customer.CustomerId,                
+                Givenname = customer.Givenname,
+                Gender = customer.Gender,
+               
+            };
+
+            return customerViewModel;
+        }
+
+
         public PagedResult<Customer> GetCustomers(string sortColumn, string sortOrder, string q, int pageNo)
         {
 
@@ -47,10 +70,7 @@ namespace InlämningBank2.Services
                 Surname = c.Surname,
                 Givenname = c.Givenname,
                 Gender = c.Gender,
-                Zipcode = c.Zipcode
-                //CustomerId = c.CustomerId,
-                //Givenname = c.Givenname,
-                //Surname = c.Surname                
+                Zipcode = c.Zipcode                             
 
             }).ToList();
 

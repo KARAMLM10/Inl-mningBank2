@@ -28,6 +28,7 @@ builder.Services.AddTransient<ICustomersService, CustomersService>();
 // Lägg till min ProductService
 builder.Services.AddTransient<IAccountsService, AccountsService>();
 
+
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
