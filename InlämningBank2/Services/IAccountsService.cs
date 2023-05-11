@@ -8,5 +8,8 @@ namespace InlämningBank2.Services
     {
         PagedResult<Account> GetAccounts(string sortColumn, string sortOrder, string q, int pageNo);
         List<AccountViewModel> GetAccounts(int AccountId);
+        List<Account> GetAccounts();
+        void Update(Account account);
+        Account GetAccount(int accountId);
     }
 }

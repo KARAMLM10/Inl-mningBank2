@@ -10,7 +10,7 @@
         <div class="table-responsive">
             <table class="table">
                 <h1>All Customers</h1>
-
+                <div><a class="btn-theme" onclick="window.history.back()"> Back</a></div>
                 @*Search*@
               @*  <form method="get">
                     <input asp-for="@Model.Q" />
@@ -147,7 +147,7 @@
                                 <td>@supp.Surname</td>
                                 <td>@supp.City</td>
                                 <td>@supp.Zipcode</td>
-                                <td><a asp-page="/Customer-image" asp-route-customerId="@supp.CustomerId" class="btn btn-primary">View</a></td>
+                                <td><a asp-page="/CustomerImage" asp-route-customerId="@supp.CustomerId" class="btn btn-primary">View</a></td>
                             </tr>
 
                         }

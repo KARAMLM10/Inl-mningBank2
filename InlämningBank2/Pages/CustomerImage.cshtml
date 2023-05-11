@@ -1,6 +1,5 @@
 ﻿@page
-@using InlämningBank2.ViewModel;
-@model InlämningBank2.Pages.Customer_imageModel
+@model InlämningBank2.Pages.CustomerImageModel
 @{
 }
 
@@ -27,6 +26,7 @@
     <div class="card transparent-card">
         <div class="card-header">
             <h5 class="card-title">Customer Profile</h5>
+            <div><a class="btn-theme" onclick="window.history.back()"> Back</a></div>
         </div>
         <div class="card-body">
             <h6 class="card-subtitle mb-2 text-muted">Customer Information</h6>
@@ -80,11 +80,17 @@
                                 <td>@account.Balans</td>
                                 <td>@account.Created</td>
                             </tr>
+                        <td>
+                            <a asp-page="/Account/Withdraw" asp-route-customerId="@Model.Customer.CustomerId" asp-route-accountId="@account.AccountId"><i class='bx bx-money-withdraw'>withdraw</i></a>
+                        </td>
+                        <td>
+                            <a asp-page="/Account/Deposite" asp-route-customerId="@Model.Customer.CustomerId" asp-route-accountId="@account.AccountId"><i class='bx bx-plus-circle'>deposite</i></a>
+                        </td>
                         }
                     </tbody>
+
                 </table>
             </div>
         </div>
     </div>
 </div>
-

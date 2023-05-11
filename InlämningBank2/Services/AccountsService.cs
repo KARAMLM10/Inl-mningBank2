@@ -13,6 +13,24 @@ namespace InlämningBank2.Services
             _dbContext = dbContext;
         }
 
+
+        public List<Account> GetAccounts()
+        {
+            //throw new NotImplementedException();
+            return _dbContext.Accounts.ToList();
+        }
+        public Account GetAccount(int accountId)
+        {
+            //throw new NotImplementedException();
+            return _dbContext.Accounts.First(a => a.AccountId == accountId);
+        }
+        public void Update(Account account)
+        {
+            //throw new NotImplementedException();
+            _dbContext.SaveChanges();
+        }
+
+
         public List<AccountViewModel> GetAccounts(int customerId)
         {
             //throw new NotImplementedException();
@@ -24,8 +42,7 @@ namespace InlämningBank2.Services
             {
                 // Handle the case when the customer is not found
                 return null; // or throw an exception, return a default value, etc.
-                //github fel
-                //github fel
+                
             }
             var accountsViewModel = new List<AccountViewModel>();
             foreach (var accouunt in accounts)
@@ -79,35 +96,6 @@ namespace InlämningBank2.Services
             return query.GetPaged(pageNo, 20);
 
         }
-
-
-
-        //    public List<AccountsViewModel> GetAccounts(string sortColumn, string sortOrder)
-        //{
-        //    //throw new NotImplementedException();
-        //    var query = _dbContext.Accounts.AsQueryable();
-        //    if (sortColumn == "AccountId")
-        //        if (sortOrder == "asc")
-        //            query = query.OrderBy(c => c.AccountId);
-        //        else if (sortOrder == "desc")
-        //            query = query.OrderByDescending(c => c.AccountId);
-        //    if (sortColumn == "Frequency")
-        //        if (sortOrder == "asc")
-        //            query = query.OrderBy(c => c.Frequency);
-        //        else if (sortOrder == "desc")
-        //            query = query.OrderByDescending(c => c.Frequency);
-
-        //    var Accounts = query.Select(c => new AccountsViewModel
-        //    {
-        //        AccountId = c.AccountId,
-        //        Frequency = c.Frequency,
-        //        Created = c.Created,
-        //        Balans = c.Balance
-
-        //    }).Take(8).ToList();
-        //    return Accounts;
-        //}
-
 
     }
 }
