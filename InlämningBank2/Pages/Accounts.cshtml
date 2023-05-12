@@ -111,15 +111,15 @@
                                 <td>@supp.Frequency</td>
                                 <td>@supp.Created</td>
                                 <td>@supp.Balans</td>
-                                @*
-                            <td><a asp-page="/Account" asp-route-id="@supp.AccountId" class="btn btn-primary">View</a></td>*@
+                                @*<td><a asp-page="/Account" asp-route-id="@supp.AccountId" class="btn btn-primary">View</a></td>*@
                                 <td>
-                                    <a asp-page="/Account/Withdraw" asp-route-accountId="@supp.AccountId" class="btn btn-danger"><i class="fa-solid fa-square-plus fa-rotate-180"></i></a>
+                                @*    <a asp-page="/Account/Withdraw" asp-route-accountId="@supp.AccountId" class="btn btn-danger"><i class="fa-solid fa-square-plus fa-rotate-180"></i></a>
+                                *@
                                 </td>
                                 <td>
                                     @* <a asp-page="/Account/Deposit" asp-route-accountId="@supp.AccountId" class="btn btn-success"><i class="fa-solid fa-square-plus fa-rotate-180"></i></a>*@
-                                    <a asp-page="Deposit2" asp-route-accountId="@supp.AccountId" class="btn btn-success"><i class="fa-solid fa-square-plus fa-rotate-180"></i></a>
-
+                                    @*<a asp-page="Deposit2" asp-route-accountId="@supp.AccountId" class="btn btn-success"><i class="fa-solid fa-square-plus fa-rotate-180"></i></a>
+*@
                                 </td>
                             </tr>
 

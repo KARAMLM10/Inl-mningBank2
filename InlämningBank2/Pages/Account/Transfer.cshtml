@@ -4,3 +4,26 @@
 }
 
 <div>transfer</div>
+<h2>Transfer Funds</h2>
+
+@if (Model.AccountId > 0)
+{
+    <h4>Transfer from Account: @Model.AccountId</h4>
+    <form method="post">
+        <div class="form-group">
+            <label for="accounttoId">Account to Transfer:</label>
+            <input type="text" class="form-control" id="accounttoId" asp-for="accounttoId" />
+        </div>
+        <div class="form-group">
+            <label asp-for="DateTransfer">Date</label>
+            <input class="form-control" asp-for="DateTransfer" />
+            <span class="field-validation-error" asp-validation-for="DateTransfer"></span>
+        </div>
+        <div class="form-group">
+            <label for="amount">Amount:</label>
+            <input type="text" class="form-control" id="amount" asp-for="Amount" />
+        </div>
+        <button type="submit" asp-route-customerId="@Model.CustomerId" asp-route-accountId="@Model.AccountId" class="btn btn-primary">Transfer</button>
+
+    </form>
+}

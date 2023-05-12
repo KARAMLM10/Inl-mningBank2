@@ -7,6 +7,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace InlämningBank2.Services
 {
+    public enum errorcodeenum
+    {
+        Invalidaccount
+    }
     public class AccountsService : IAccountsService
     {
         private readonly BankAppDataContext _dbContext;
@@ -105,10 +109,50 @@ namespace InlämningBank2.Services
             var transactions = _dbContext.Accounts
                 .Include(t => t.Transactions
                 .Where(t=>t.AccountId == accountId))
-                .SelectMany(t => t.Transactions);
+                .SelectMany(t => t.Transactions)
+                .OrderByDescending(s=>s.TransactionId);
             return transactions.GetPaged(page,10);
 
         }
 
+        public Transaction GetTransfer(int accountId, int accounttoId, decimal amount)
+        {
+
+            var account = _dbContext.Accounts
+                .Include(d => d.Dispositions)
+                .ThenInclude(a => a.Customer)
+                .First(a => a.AccountId == accountId);
+            var accountto = _dbContext.Accounts
+                .Include(d => d.Dispositions)
+                .ThenInclude(a => a.Customer)
+                .First(a => a.AccountId == accounttoId);
+            account.Balance -= amount;
+            accountto.Balance += amount;
+            string messege = "transfer";
+            _dbContext.Transactions.Add(new Transaction
+            {
+                AccountId = accountId,
+                Date = DateTime.Now,
+                Type = "Debit",
+                Operation = messege,
+                Amount = -amount,
+                Balance = account.Balance,
+                Account = accountto.AccountId.ToString(),
+            });
+            _dbContext.Transactions.Add(new Transaction
+            {
+                AccountId = accounttoId,
+                Date = DateTime.Now,
+                Type = "Credit",
+                Operation = messege,
+                Amount = amount,
+                Balance = accountto.Balance,
+                Account = accountto.AccountId.ToString(),
+            });
+            _dbContext.SaveChanges();
+            return _dbContext.Transactions.First();
+        }
+
+       
     }
 }

@@ -15,7 +15,7 @@ namespace InlämningBank2.Pages.Account
         {
             _accountsService = accountsService;
         }
-        //public List<DepositViewModel> Deposit { get; set; }
+
         [Range(100, 10000)]
         public decimal Amount { get; set; }
         public DateTime DepositDate { get; set; }
@@ -30,7 +30,7 @@ namespace InlämningBank2.Pages.Account
         public int AccountId { get; set; }
         public void OnGet(int accountId, int customerId)
         {
-            DepositDate = DateTime.Now.AddHours(1);
+            //DepositDate = DateTime.Now.AddHours(1);
             CustomerId = customerId;
             AccountId = accountId;
         }
