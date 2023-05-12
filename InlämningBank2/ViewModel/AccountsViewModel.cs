@@ -6,5 +6,6 @@
     //    public string Frequency { get; internal set; }
     //    public DateTime Created { get; internal set; }
     //    public decimal Balans { get; internal set; }
+    //kdfjvndafköjv
     //}
 }
