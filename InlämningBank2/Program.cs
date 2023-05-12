@@ -1,8 +1,9 @@
-using InlämningBank2.BankAppData;
+using DBContextLibrary.BankAppData;
+using DBContextLibrary.Data;
 using InlämningBank2.Data;
-using InlämningBank2.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using ServiceLibrary;
 
 var builder = WebApplication.CreateBuilder(args);
 

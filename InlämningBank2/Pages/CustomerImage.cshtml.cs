@@ -1,11 +1,10 @@
-using InlämningBank2.BankAppData;
 using InlämningBank2.Data;
-using InlämningBank2.Services;
-using InlämningBank2.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
 using System.Reflection.Emit;
+using DBContextLibrary.ViewModel;
+using ServiceLibrary;
 
 namespace InlämningBank2.Pages
 {

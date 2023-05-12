@@ -1,9 +1,7 @@
-using InlämningBank2.BankAppData;
-using InlämningBank2.Services;
-using InlämningBank2.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
+using ServiceLibrary;
 
 namespace InlämningBank2.Pages.Account
 {

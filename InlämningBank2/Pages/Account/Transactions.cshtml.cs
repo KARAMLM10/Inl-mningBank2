@@ -1,8 +1,8 @@
-using InlämningBank2.Services;
-using InlämningBank2.ViewModel;
+using DBContextLibrary.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using ServiceLibrary;
 
 namespace InlämningBank2.Pages.Account
 {
