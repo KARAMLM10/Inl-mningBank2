@@ -86,6 +86,12 @@
                         <td>
                             <a asp-page="/Account/Deposite" asp-route-customerId="@Model.Customer.CustomerId" asp-route-accountId="@account.AccountId"><i class='bx bx-plus-circle'>deposite</i></a>
                         </td>
+                        <td>
+                            <a asp-page="/Account/Transactions" asp-route-accountId="@account.AccountId"><i class='bx bx-plus-circle'>More Info</i></a>
+                        </td>
+                        <td>
+                            <a asp-page="/Account/Transfer" asp-route-customerId="@Model.Customer.CustomerId" asp-route-accountId="@account.AccountId"><i class='bx bx-plus-circle'>Transfer</i></a>
+                        </td>
                         }
                     </tbody>
 

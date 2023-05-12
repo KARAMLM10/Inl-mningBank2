@@ -1,0 +1,52 @@
+﻿@page
+@model InlämningBank2.Pages.Account.TransactionsModel
+@{
+}
+
+<div class="card">
+    <div class="card-header">
+    </div>
+    <div class="card-body">
+        <table class="table" id="posts-table">
+            <tr>
+                <th style="text-align:left">TransactionId</th>
+                <th style="text-align:left">amount</th>
+                <th style="text-align:left">Date</th>
+                <th style="text-align:left">Typ</th>
+            </tr>
+            @*Här ska vårt innehåll tryckas in!*@
+        </table>
+        <a class="btn btn-primary" href="javascript:showMore();">Show More</a>
+    </div>
+</div>
+@section Scripts {
+
+    <script>
+        pageNo = 1;
+        AccountId = @Model.AccountId;
+        document.addEventListener("DOMContentLoaded", function () {
+            showMore();
+        });
+
+        function showMore() {
+            fetch(`/Account/Transactions?handler=ShowMore&accountId=${AccountId}&pageNo=${pageNo}`)
+                .then((response) => response.json())
+                .then((json) => {
+                    pageNo = pageNo + 1;
+                    json.transactions.forEach(drawElements);
+                });
+        }
+        function drawElements(element) {
+            document.querySelector('#posts-table tbody').innerHTML +=
+                `<tr>
+                    <td>${element.transactionId}</td>
+                    <td>${element.amount}</td>
+                    <td>${element.type}</td>
+                    <td>${element.date}</td>
+                </tr>`;
+        }
+
+
+    </script>
+
+}

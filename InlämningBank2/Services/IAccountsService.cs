@@ -11,5 +11,6 @@ namespace InlämningBank2.Services
         List<Account> GetAccounts();
         void Update(Account account);
         Account GetAccount(int accountId);
+        PagedResult<Transaction> GetTransactions(int accountId, int page);
     }
 }

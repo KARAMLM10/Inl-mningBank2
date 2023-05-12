@@ -1,6 +1,8 @@
 ﻿using InlämningBank2.BankAppData;
 using InlämningBank2.Infrastructure.Paging;
 using InlämningBank2.ViewModel;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
 namespace InlämningBank2.Services
@@ -94,6 +96,17 @@ namespace InlämningBank2.Services
             }).ToList();
 
             return query.GetPaged(pageNo, 20);
+
+
+        }
+
+        public PagedResult<Transaction> GetTransactions(int accountId, int page) 
+        {
+            var transactions = _dbContext.Accounts
+                .Include(t => t.Transactions
+                .Where(t=>t.AccountId == accountId))
+                .SelectMany(t => t.Transactions);
+            return transactions.GetPaged(page,10);
 
         }
 

@@ -9,5 +9,7 @@ namespace InlämningBank2.Services
         PagedResult<Customer> GetCustomers(string sortColumn, string sortOrder, string q, int pageNo);
 
         CustomerViewModel GetCustomer(int customerId);
+        
+
     }
 }
