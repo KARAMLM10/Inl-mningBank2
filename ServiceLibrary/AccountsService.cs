@@ -20,24 +20,20 @@ namespace ServiceLibrary
 
         public List<Account> GetAccounts()
         {
-            //throw new NotImplementedException();
             return _dbContext.Accounts.ToList();
         }
         public Account GetAccount(int accountId)
         {
-            //throw new NotImplementedException();
             return _dbContext.Accounts.First(a => a.AccountId == accountId);
         }
         public void Update(Account account)
         {
-            //throw new NotImplementedException();
             _dbContext.SaveChanges();
         }
 
 
         public List<AccountViewModel> GetAccounts(int customerId)
         {
-            //throw new NotImplementedException();
             var accounts = _dbContext.Dispositions
                 .Include(x => x.Customer)
                 .Include(a => a.Account)
@@ -87,6 +83,16 @@ namespace ServiceLibrary
                     query = query.OrderBy(c => c.Frequency);
                 else if (sortOrder == "desc")
                     query = query.OrderByDescending(c => c.Frequency);
+            if (sortColumn == "Created")
+                if (sortOrder == "asc")
+                    query = query.OrderBy(c => c.Created);
+                else if (sortOrder == "desc")
+                    query = query.OrderByDescending(c => c.Created);
+            if (sortColumn == "Balance")
+                if (sortOrder == "asc")
+                    query = query.OrderBy(c => c.Balance);
+                else if (sortOrder == "desc")
+                    query = query.OrderByDescending(c => c.Balance);
 
             var Accounts = query.Select(c => new AccountViewModel
             {

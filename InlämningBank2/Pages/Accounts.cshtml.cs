@@ -7,14 +7,13 @@ using ServiceLibrary;
 
 namespace InlämningBank2.Pages
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Cashier")]
     public class AccountsModel : PageModel
     {
         public AccountsModel(IAccountsService accountsService)
         {
             _accountsService = accountsService;
         }
-        //private readonly IAccountsService accountsService;
         private readonly IAccountsService _accountsService;
 
         public List<AccountViewModel> Accounts { get; set; }
@@ -33,7 +32,7 @@ namespace InlämningBank2.Pages
             }
             Q = q;
             SortColumn = sortColumn;
-            SortOrder = sortOrder;            
+            SortOrder = sortOrder;
             PageCount = pageNo;
             CurrentPage = pageNo;
             var result = _accountsService.GetAccounts(sortColumn, sortOrder, q, pageNo);
@@ -46,16 +45,7 @@ namespace InlämningBank2.Pages
                 Created = c.Created,
                 Balans = c.Balance
             }).ToList();
-            //Accounts = _accountsService.GetAccounts(SortColumn, sortOrder);
-
-            //Accounts = _dbContext.Accounts.Select(x => new AccountsViewModel
-            //{
-            //    AccountId = x.AccountId,
-            //    Frequency = x.Frequency,
-            //    Created = DateTime.Now,
-            //    Balans = x.Balance
-
-            //}).Take(6).ToList();
+            
         }
     }
 }

@@ -7,14 +7,13 @@ using ServiceLibrary;
 
 namespace InlämningBank2.Pages
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Cashier")]
     public class Customers_1Model : PageModel
     {
         private readonly ICustomersService _customersService;
 
         public Customers_1Model(ICustomersService customersService)
         {
-            //_dbContext = dbContext;
             _customersService = customersService;
 
         }
@@ -38,7 +37,6 @@ namespace InlämningBank2.Pages
             SortOrder = sortOrder;
             PageCount = pageNo;
             CurrentPage = pageNo;
-            //Customers = _customersService.GetCustomers(SortColumn, sortOrder , q , pageNo);
             var result = _customersService.GetCustomers(sortColumn, sortOrder, q, pageNo);
             PageCount = result.PageCount;
 
@@ -50,9 +48,6 @@ namespace InlämningBank2.Pages
                 Surname = c.Surname,
                 Zipcode = c.Zipcode,
                 Givenname = c.Givenname,
-                //CustomerId = c.CustomerId,
-                //Surname = c.Surname,
-                //Givenname = c.Givenname
 
             }).ToList();
 

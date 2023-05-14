@@ -28,7 +28,7 @@ namespace InlämningBank2.Pages.Account
         public int AccountId { get; set; }
         public void OnGet(int accountId, int customerId)
         {
-            //DepositDate = DateTime.Now.AddHours(1);
+            DepositDate = DateTime.Now;
             CustomerId = customerId;
             AccountId = accountId;
         }

@@ -128,7 +128,7 @@ namespace InlämningBank2.Areas.Identity.Pages.Account
                     if (Input.UserRole == null)
                     {
                         await _userManager.AddToRoleAsync(
-                            user, "Customer");
+                            user, "None");
                     }
                     else
                     {

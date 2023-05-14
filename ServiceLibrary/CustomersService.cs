@@ -14,8 +14,6 @@ namespace ServiceLibrary
 
         public CustomerViewModel GetCustomer(int customerId)
         {
-            //throw new NotImplementedException();
-            //return _dbContext.Customers.First(a => a.CustomerId == customerId);
             var customer = _dbContext.Customers.FirstOrDefault(a => a.CustomerId == customerId);
             if (customer == null)
             {
@@ -67,6 +65,26 @@ namespace ServiceLibrary
                     query = query.OrderBy(c => c.City);
                 else if (sortOrder == "desc")
                     query = query.OrderByDescending(c => c.City);
+            if (sortColumn == "CustomerID")
+                if (sortOrder == "asc")
+                    query = query.OrderBy(c => c.CustomerId);
+                else if (sortOrder == "desc")
+                    query = query.OrderByDescending(c => c.CustomerId);
+            if (sortColumn == "Gender")
+                if (sortOrder == "asc")
+                    query = query.OrderBy(c => c.Gender);
+                else if (sortOrder == "desc")
+                    query = query.OrderByDescending(c => c.Gender);
+            if (sortColumn == "Zipcode")
+                if (sortOrder == "asc")
+                    query = query.OrderBy(c => c.Zipcode);
+                else if (sortOrder == "desc")
+                    query = query.OrderByDescending(c => c.Zipcode);
+            if (sortColumn == "Givenname")
+                if (sortOrder == "asc")
+                    query = query.OrderBy(c => c.Givenname);
+                else if (sortOrder == "desc")
+                    query = query.OrderByDescending(c => c.Givenname);
 
             var Customers = query.Select(c => new CustomersViewModel
             {

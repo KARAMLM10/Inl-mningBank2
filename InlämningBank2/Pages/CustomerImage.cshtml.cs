@@ -5,9 +5,12 @@ using Microsoft.Data.SqlClient;
 using System.Reflection.Emit;
 using DBContextLibrary.ViewModel;
 using ServiceLibrary;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace InlämningBank2.Pages
 {
+    [Authorize(Roles = "Admin")]
     public class CustomerImageModel : PageModel
     {
         private readonly ICustomersService _customersService;

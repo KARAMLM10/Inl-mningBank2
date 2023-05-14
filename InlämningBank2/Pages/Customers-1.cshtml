@@ -6,35 +6,25 @@
 
 <div class="card card-bg">
     <div class="card-body">
-        @* <h5 class="card-title">Min Tabell</h5>*@
         <div class="table-responsive">
             <table class="table">
                 <h1>All Customers</h1>
-                @*<div><a class="btn-theme" onclick="window.history.back()"> Back</a></div>*@
-                @*Search*@
-                @*  <form method="get">
-                <input asp-for="@Model.Q" />
-                <input type="hidden" asp-for="@Model.Customers" />
-                <input type="submit" value="Search" />
-                </form>*@
+               
                 <form method="get" class="my-form">
                     <div class="form-group">
                         <input asp-for="@Model.Q" class="form-control" />
                     </div>
                     <input type="hidden" asp-for="@Model.Customers" />
-                    @*<input type="submit" value="Search" class="btn btn-primary" />*@
                     <div class="col-md-3">
                         <button type="submit" class="btn btn-primary btn-block">Search</button>
                     </div>
                 </form>
-                <div class="col-md-3">
-                    <button type="submit" class="btn btn-primary btn-block" onclick="window.history.back()">Tillbaka</button>
-
-                </div>
 
                 <table class="table table-hover table-striped">
                     <thead>
-
+                    <div class="col-md-3">
+                        <button type="submit" class="btn btn-primary btn-block" onclick="window.history.back()">Back</button>
+                    </div>
                         <tr>
                             <th scope="col">
                                 CustomerID
@@ -103,7 +93,6 @@
                                     <i class="fa-solid fa-angle-down"></i>
                                 </a>
                             </th>
-                            @*<th scope="col">StreetAddress</th>*@
                             <th scope="col">
                                 City
                                 <a asp-page="/Customers-1"

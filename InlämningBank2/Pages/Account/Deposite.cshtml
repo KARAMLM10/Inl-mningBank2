@@ -4,28 +4,9 @@
 }
 
 <h1>Deposit</h1>
-<div><a class="btn-theme" onclick="window.history.back()"> Back</a></div>
-@*<form method="post">
-    <div class="form-group">
-        <label asp-for="Amount">Amount</label>
-        <input class="form-control" asp-for="Amount" />
-        <span class="field-validation-error" asp-validation-for="Amount"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="DepositDate">Date</label>
-        <input class="form-control" asp-for="DepositDate" />
-        <span class="field-validation-error" asp-validation-for="DepositDate"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Comment">Comment</label>
-        <input class="form-control" asp-for="Comment" />
-        <span class="field-validation-error" asp-validation-for="Comment"></span>
-    </div>
-    <button type="submit" class="btn btn-primary">Deposit</button>
-</form>
-*@
-
-<h1>Deposit</h1>
+<div class="col-md-3">
+    <button type="submit" class="btn btn-primary btn-block" onclick="window.history.back()">Back</button>
+</div>
 <form method="post">
     <div class="form-group">
         <label asp-for="Amount">Amount</label>
