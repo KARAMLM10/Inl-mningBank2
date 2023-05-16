@@ -18,17 +18,166 @@
     </div>
 </section>
 
+<div class="profilecard">
+    <div class="transparent-card">
+        <div class="allcards">
+            <div class="card2">
+                <img src="/assets/img/Flag_of_Sweden.svg.png" alt="Card Image">
+                <div class="card-body2">
+                    <h4><i class="fa-solid fa-user"></i></h4>
+                    <h5 class="card-text2">
+                        Clients
+                        <br />1377
+                    </h5>
+                    <h4><i class="fa-solid fa-chart-simple"></i></h4>
+                    <h5 class="card-text2">
+                        Accounts
+                        <br /> 1144
+                    </h5>
+                    <h4> <i class="fa-sharp fa-solid fa-dollar-sign"></i> </h4>
+                    <h5 class="card-text2">
+                        Capital
+                        <br />61,380,373 kr
+                    </h5>
+                </div>
+            </div>
+            <div class="card2">
+                <img src="/assets/img/Danmark-Flag.jpg" alt="Card Image">
+                <div class="card-body2">
+                    <h4><i class="fa-solid fa-user"></i></h4>
+                    <h5 class="card-text2">
+                        Clients
+                        <br />1377
+                    </h5>
+                    <h4><i class="fa-solid fa-chart-simple"></i></h4>
+                    <h5 class="card-text2">
+                        Accounts
+                        <br /> 1144
+                    </h5>
+                    <h4> <i class="fa-sharp fa-solid fa-dollar-sign"></i> </h4>
+                    <h5 class="card-text2">
+                        Capital
+                        <br />61,380,373 kr
+                    </h5>
+                </div>
+            </div>
+            <div class="card2">
+                <img src="/assets/img/F2bild.png" alt="Card Image">
+                <div class="card-body2">
+                    <h4><i class="fa-solid fa-user"></i></h4>
+                    <h5 class="card-text2">
+                        Clients
+                        <br />1377
+                    </h5>
+                    <h4><i class="fa-solid fa-chart-simple"></i></h4>
+                    <h5 class="card-text2">
+                        Accounts
+                        <br /> 1144
+                    </h5>
+                    <h4> <i class="fa-sharp fa-solid fa-dollar-sign"></i> </h4>
+                    <h5 class="card-text2">
+                        Capital
+                        <br />61,380,373 kr
+                    </h5>
+                </div>
+            </div>
+            <div class="card2">
+                <img src="/assets/img/Norway-flag.jpg" alt="Card Image">
+                <div class="card-body2">
+                    <h4><i class="fa-solid fa-user"></i></h4>
+                    <h5 class="card-text2">
+                        Clients
+                        <br />1377
+                    </h5>
+                    <h4><i class="fa-solid fa-chart-simple"></i></h4>
+                    <h5 class="card-text2">
+                        Accounts
+                        <br /> 1144
+                    </h5>
+                    <h4> <i class="fa-sharp fa-solid fa-dollar-sign"></i> </h4>
+                    <h5 class="card-text2">
+                        Capital
+                        <br />61,380,373 kr
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .profilecard {
+        background-image: url('/assets/img/demo-image-02.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100%;
+       
+    }
+
+    .transparent-card {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+    }
+    .card2 {
+        opacity: 4;
+        max-width: 300px;
+        margin: 0 auto;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+        transition: 0.3s;
+        border-radius: 5px;
+    }
+
+        .card2:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
+        }
+
+        .card2 img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px 5px 0 0;
+        }
+
+    .card-body2 {
+        padding: 20px;
+    }
+
+    .card2-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .card-text2 {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .allcards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-gap: 20px;
+        justify-items: center;
+    }
+
+    /*.card2 {
+                width: calc(33.33% - 20px);
+                margin-bottom: 20px;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                border-radius: 5px;
+            }*/
 
 
-<div class="container-fluid p-0" style="height: 100vh; background-image: url('/assets/img/BWBG.jpg'); background-size: cover; background-position: center;">
+
+</style>
+
+@*<div class="container-fluid p-0" style="height: 100vh; background-image: url('/assets/img/BWBG.jpg'); background-size: cover; background-position: center;">
     <div class="row justify-content-center align-items-center">
         <div class="col-sm-6 col-md-3">
             <div class="card" style="margin-top:90px">
                 <div class="card-header">
-                    <img src="/assets/img/Flag_of_Sweden.svg.png" class="img-fluid" alt="Flag">
+                    <img src="/assets/img/Flag_of_Sweden.svg.png" class="img-fluid img-responsive" alt="Flag">
                 </div>
                 <div class="card-body">
-
                     <h4><i class="fa-solid fa-user"></i></h4>
                     <h5 class="card-text">
                         Clients
@@ -50,10 +199,9 @@
         <div class="col-sm-6 col-md-3">
             <div class="card" style="margin-top:90px">
                 <div class="card-header">
-                    <img src="/assets/img/Danmark-Flag.jpg" class="img-fluid" alt="Flag">
+                    <img src="/assets/img/Danmark-Flag.jpg" class="img-fluid img-responsive" alt="Flag">
                 </div>
                 <div class="card-body">
-
                     <h4><i class="fa-solid fa-user"></i></h4>
                     <h5 class="card-text">
                         Clients
@@ -75,10 +223,9 @@
         <div class="col-sm-6 col-md-3">
             <div class="card" style="margin-top:90px">
                 <div class="card-header">
-                    <img src="/assets/img/Norway-flag.jpg" class="img-fluid" alt="Flag">
+                    <img src="/assets/img/Norway-flag.jpg" class="img-fluid img-responsive" alt="Flag">
                 </div>
                 <div class="card-body">
-
                     <h4><i class="fa-solid fa-user"></i></h4>
                     <h5 class="card-text">
                         Clients
@@ -100,10 +247,9 @@
         <div class="col-sm-6 col-md-3">
             <div class="card" style="margin-top:90px">
                 <div class="card-header">
-                    <img src="/assets/img/Finland-flag.png" class="img-fluid" alt="Flag">
+                    <img src="/assets/img/Finland-flag.png" class="img-fluid img-responsive" alt="Flag">
                 </div>
                 <div class="card-body">
-
                     <h4><i class="fa-solid fa-user"></i></h4>
                     <h5 class="card-text">
                         Clients
@@ -123,7 +269,9 @@
             </div>
         </div>
     </div>
+
 </div>
+*@
 
 <style>
     .card-header img {

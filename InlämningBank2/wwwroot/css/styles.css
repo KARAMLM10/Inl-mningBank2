@@ -11,7 +11,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 /*=========================================================*/
-.icon-box i {
+/*.icon-box i {
     color : black;
 }
 h3 {
@@ -42,19 +42,23 @@ h3 {
     position: relative;
     overflow: hidden;
 }
-
+*/
 .card-bg {
     /* background-image: url('path/to/background/image.jpg'); */
     background-image: url('/assets/img/bg-masthead.jpg');
     background-size: cover;
     background-position: center;
 }
-
-.card::before {
+.allcards {
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+}
+/*.card::before {
     content: '';
     display: block;
     position: absolute;
-    z-index: -1;
+   
     top: 0;
     left: 0;
     width: 100%;
@@ -66,8 +70,7 @@ h3 {
 .card-title {
     font-weight: bold;
     margin-bottom: 20px;
-}
-
+}*/
 form {
     display: flex;
     flex-direction: column;
@@ -101,10 +104,11 @@ input[type="submit"] {
     font-size: 16px;
     cursor: pointer;
 }
-
+        
     input[type="submit"]:hover {
         background-color: #0062cc;
     }
+
 /*=====================================*/
 .row {
     background-image: url("/assets/img/BWBG.jpg"); /* Ange sökvägen till din bakgrundsbild */
@@ -150,34 +154,8 @@ input[type="submit"] {
 
 
 /*=====================================*/
-/*.card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-}
 
-    .card:hover {
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    }
 
-.card-header {
-    height: 200px;
-}
-
-    .card-header img {
-        object-fit: cover;
-    }
-
-.card-body {
-    padding: 16px;
-}
-
-.card-title {
-    font-weight: bold;
-}
-
-.card-text {
-    color: #333;
-}*/
 /*=========================================================*/
 :root {
     --bs-blue: #0d6efd;
