@@ -43,6 +43,27 @@ h3 {
     overflow: hidden;
 }
 */
+/*=====================================================*/
+
+@media (max-width: 767px) {
+    /* Adjust table layout for small screens */
+    .table-wrapper {
+        overflow-x: auto;
+    }
+
+    /* Make buttons stack vertically */
+    .pagination-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+        .pagination-wrapper .btn {
+            margin: 0.5em;
+        }
+}
+
+/*=====================================================*/
 .card-bg {
     /* background-image: url('path/to/background/image.jpg'); */
     background-image: url('/assets/img/bg-masthead.jpg');
